@@ -1,4 +1,5 @@
 const express =  require("express");
+require('dotenv').config();
 const app = express();
 const server = require("http").Server(app);
 const {v4: uuidv4} = require("uuid");
@@ -28,6 +29,6 @@ io.on("connection", (socket)=>{
     });
 });
 
-server.listen(3030,()=>{
+server.listen(process.env.PORT || 3030,()=>{
     console.log('Server active on port 3030');
 });
